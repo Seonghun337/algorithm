@@ -1,4 +1,5 @@
-
+#21.02.01
+#양 끝 곱
 
 
 def solve(divisors):

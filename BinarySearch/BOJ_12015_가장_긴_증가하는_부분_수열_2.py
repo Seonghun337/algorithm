@@ -1,3 +1,4 @@
+#21.02.03
 
 def solution(n,arr):
     result = []
@@ -35,8 +36,5 @@ def main():
     n = int(input())
     arr = list(map(int,input().split()))
     print(solution(n,arr))
-    # a = [3,4,5,6]
-    # lower_bound(a,2,0,3)
-    # print(a)
 
 main()

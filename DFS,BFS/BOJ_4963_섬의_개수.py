@@ -1,3 +1,6 @@
+#21.02.02
+#탐색 완료된 사각형은 바다로 생각
+
 from collections import deque
 
 def solution(n,m,mat):
