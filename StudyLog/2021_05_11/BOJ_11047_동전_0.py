@@ -1,5 +1,3 @@
-INF = (1e9)
-
 n, k = map(int,input().split())
 coins = [int(input()) for _ in range(n)]
 
@@ -13,3 +11,5 @@ for coin in coins:
         
 
 print(cnt)
+
+#동전들이 배수라서 그냥 탐욕법
