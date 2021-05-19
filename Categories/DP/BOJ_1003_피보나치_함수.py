@@ -1,10 +1,8 @@
 #21.02.03
-
 def solve(n):
     hist = {0:(1,0), 1:(0,1)}
     f = fibo(n, hist)
     return ' '.join(list(map(str,f)))
-
 def fibo(n, hist):
     if n == 0:
         return (1, 0)
@@ -17,10 +15,8 @@ def fibo(n, hist):
             f = sum(fibo(n-1,hist),fibo(n-2,hist))
             hist[n] = f
             return f
-
 def sum(a,b):
     return (a[0]+b[0],a[1]+b[1])
-
 def main():
     T = int(input())
     inputList = []
@@ -29,7 +25,6 @@ def main():
 
     for i in range(T):
         print(solve(inputList[i]))
-
 
 main()
 
