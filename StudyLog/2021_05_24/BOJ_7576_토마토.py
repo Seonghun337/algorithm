@@ -35,9 +35,6 @@ while len(queue) > 0:
                 visited[ny][nx] = 1
                 box[ny][nx] = 1
 
-    # print(box)
-
-#check
 isOk = 1
 for i in range(n):
     for j in range(m):

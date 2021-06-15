@@ -14,7 +14,7 @@ def getSumOfCutted(h, trees):
 
     return sum_
 
-def search(a,b,m,trees):
+def search(a,b,m,trees):#log m
     mid = (a+b)//2
 
     sum_ = getSumOfCutted(mid, trees)

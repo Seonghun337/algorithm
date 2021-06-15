@@ -1,6 +1,4 @@
 n = int(input())
-
-# nums = [x for x in range(1,n+1)]
 num = 1
 arr = [int(input()) for _ in range(n)]
 stack = []
