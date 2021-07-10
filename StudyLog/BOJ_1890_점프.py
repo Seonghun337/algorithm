@@ -11,7 +11,7 @@ for i in range(n-1,-1,-1):
         if i == n-1 and j == n-1:
             count[i][j] = 1
             continue
-        
+
         distance = board[i][j]
 
         if i + distance < n:
@@ -21,6 +21,6 @@ for i in range(n-1,-1,-1):
             count[i][j] = count[i][j] + count[i][j+distance]
 
         
-print(count)
-print(board)
+# print(count)
+# print(board)
 print(count[0][0])
