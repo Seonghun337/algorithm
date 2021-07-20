@@ -16,6 +16,7 @@ for c in cases:
     for i in range(n):
         w = adjarr[c[i]-1][c[i+1]-1]
         if w == 0:
+            isNotOk = 1
             break
         else:
             sum_ = sum_ + w

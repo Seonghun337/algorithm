@@ -14,16 +14,7 @@ def getValidIneqs(ineqs, reverse = False):
                     if j > 0 and ineqs[j-1] != '>': 
                         break
         return result
-    else: # <
-        # n = len(ineqs)+1
-        # result = [0 for _ in range(n)]
-        # for i in range(len(ineqs)):
-        #     if ineqs[i] == '<':
-        #         for j in range(i+1,n):
-        #             result[j] = result[j] + 1
-        #             if j < n-1 and ineqs[j] != '<': 
-        #                 break
-        # return result
+    else: 
         n = len(ineqs)+1
         result = [0 for _ in range(n)]
         for i in range(n-2,-1,-1):
