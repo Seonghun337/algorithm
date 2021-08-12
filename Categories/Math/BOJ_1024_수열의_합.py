@@ -1,14 +1,12 @@
 def solution(N,L):
     i = L
 
-    # print(Sum)
     while i <= 100:
         Sum = (i-1)*i//2
         if (N-Sum)%i == 0:
             k = (N-Sum)//i
             if k < 0:
                 break
-            # print(k)
             answer = [x for x in range(k,k+i)]
             print(' '.join(map(str,answer)))
             return

@@ -15,7 +15,6 @@ for i in range(n):
         else:
             break
 
-print(res)
 
 if res[-1] == INF:
     print(-1)

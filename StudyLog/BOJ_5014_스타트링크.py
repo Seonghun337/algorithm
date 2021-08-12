@@ -30,6 +30,14 @@ else:
     print(strImpossible)
 
 
+
+
+
+
+
+
+
+
 # 그리디 안됨
 # 당연히
 #
