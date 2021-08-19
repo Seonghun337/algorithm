@@ -1,0 +1,44 @@
+This README.md is the usage of team SeoulTech for the track 2 of idash-2021 competition.
+
+
+1. data preprocessing
+
+sudo docker load -i preprocessing_SeoulTech.tar
+
+sudo docker run -it preprocessing_SeoulTech
+
+#check the container ID
+sudo docker ps
+#ex )CONTAINER ID       IMAGE 			COMMAND	CREATED	STATUS	PORTS	NAMES
+#    9a03ebce38c3    preprocessing_SeoulTech	
+
+#put a test_data file in preprocessing_SeoulTech container
+
+sudo docker cp ./${test_data} ${preprocessing docker CONTAINER ID}:/home
+
+#limit the container cpu core and memory
+sudo docker update —cpuset-cpus=1 bad7da6e12e5
+
+#if test data file name is not 'data.fa', change the file name to 'data.fa'
+mv ./${test_data} ./data.fa
+
+#start preprocessing
+python3 preprocessing.py
+
+#move the preprocessed file to heaan_SeoulTech docker container(server)
+
+2. Inference
+
+sudo docker load -i heaan_SeoulTech.tar
+
+sudo docker run -it heaan_SeoulTech
+
+sudo docker cp ${preprocessing docker CONTAINER ID}:/home/data.csv ./
+sudo docker cp ./data.csv ${server docker CONTAINER ID}:/home/HEAAN_pub/HEAAN/HEAAN/run/data
+
+#in heaan_SeoulTech docker container
+
+cd /home/HEAAN_pub/HEAAN/HEAAN/run
+./TestHEAAN Classify
+
+#result csv file is 나옴

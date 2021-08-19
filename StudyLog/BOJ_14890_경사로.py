@@ -5,62 +5,70 @@ mat = [list(map(int,sys.stdin.readline().rstrip().split())) for _ in range(n)]
 
 n_possible_way = 0
 
-# 가로 직접 다 해보기 # row check
+# 행 검사
 for i in range(n):
     prev = mat[i][0]
-    cnt_l_prev = 0
-    cnt_l = 0
-    is_l_check = 0
-
+    n_cont = 0 # 연속된 칸 수(같은 높이가)
+    checking = 0 # 내리막을 만나서 L을 카운트 하는중임을 나타내는 플래그 변수
     for j in range(1,n):
-        if prev == mat[i][j]+1 and not is_l_check:
-            cnt_l_prev = 0
-            is_l_check = 1
-            cnt_l = 1
-        elif prev == mat[i][j] - 1:
-            if cnt_l_prev < l:
+        # print(j)
+        if prev == mat[i][j]:
+            n_cont = n_cont + 1
+            if checking == 1 and n_cont >= l:
+                checking = 0
+        elif prev == mat[i][j] + 1: #내리막
+            # 이미 체크중인데 내리막을 또 만나면 불가능 판단
+            if checking == 1:
                 break
-            cnt_l_prev = 0
-        elif prev == mat[i][j]:
-            cnt_l_prev = cnt_l_prev + 1
-            if is_l_check:
-                cnt_l = cnt_l + 1
-                if cnt_l >= l:
-                    is_l_check = 0
-        elif abs(prev - mat[i][j]) > 1 and is_l_check:
+            else:
+                n_cont = 1
+                checking = 1
+        elif prev == mat[i][j] - 1 and checking == 0: #오르막
+            # 오르막 전에 L비트 있었으면 괜찮
+            # L비트보다 작으면 오르막 불가능 판단
+            if n_cont >= l:
+                n_cont = 1
+            else:
+                break
+        else:
             break
         prev = mat[i][j]
     else:
         n_possible_way = n_possible_way + 1
+        print('i',i)
 
-# col check
+
+
+# 열 검사
 for j in range(n):
-    prev = mat[i][0]
-    cnt_l_prev = 0
-    cnt_l = 0
-    is_l_check = 0
-
+    prev = mat[0][j]
+    n_cont = 0 # 연속된 칸 수(같은 높이가)
+    checking = 0 # 내리막을 만나서 L을 카운트 하는중임을 나타내는 플래그 변수
     for i in range(1,n):
-        if prev == mat[i][j]+1 and not is_l_check:
-            cnt_l_prev = 0
-            is_l_check = 1
-            cnt_l = 1
-        elif prev == mat[i][j] - 1:
-            if cnt_l_prev < l:
+        # print(i)
+        if prev == mat[i][j]:
+            n_cont = n_cont + 1
+            if checking == 1 and n_cont >= l:
+                checking = 0
+        elif prev == mat[i][j] + 1: #내리막
+            # 이미 체크중인데 내리막을 또 만나면 불가능 판단
+            if checking == 1:
                 break
-            cnt_l_prev = 0
-        elif prev == mat[i][j]:
-            cnt_l_prev = cnt_l_prev + 1
-            if is_l_check:
-                cnt_l = cnt_l + 1
-                if cnt_l >= l:
-                    is_l_check = 0
-        elif abs(prev - mat[i][j]) > 1 and is_l_check:
+            else:
+                n_cont = 1
+                checking = 1
+        elif prev == mat[i][j] - 1 and checking == 0: #오르막
+            # 오르막 전에 L비트 있었으면 괜찮
+            # L비트보다 작으면 오르막 불가능 판단
+            if n_cont >= l:
+                n_cont = 1
+            else:
+                break
+        else:
             break
         prev = mat[i][j]
     else:
         n_possible_way = n_possible_way + 1
-
-
+        print('j',j)
 
 print(n_possible_way)
