@@ -35,3 +35,4 @@ for xyxy in ops:
         print(dp[x2-1][y2-1] - dp[x1-2][y2-1])
     else:
         print(dp[x2-1][y2-1] - dp[x1-2][y2-1] - dp[x2-1][y1-2] + dp[x1-2][y1-2])
+
