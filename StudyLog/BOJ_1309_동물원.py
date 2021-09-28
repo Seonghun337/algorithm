@@ -1,4 +1,5 @@
-n = int(input())
+import sys
+n = int(sys.stdin.readline().rstrip())
 #i번째에 있는 것만 침
 f = 0
 f_prev = 2

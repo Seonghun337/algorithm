@@ -11,7 +11,7 @@ while True:
     nodes.append(node)
 
 n = len(nodes)
-sys.setrecursionlimit(10002)
+sys.setrecursionlimit(100002)
 
 def search(start=0, end=n):
     if start>=end:
